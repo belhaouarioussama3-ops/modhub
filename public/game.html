@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ModHub — Game</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+<header>
+<a class="logo" href="/">◆ ModHub</a>
+<nav>
+<a href="/">Games</a>
+<a href="/admin.html">Admin</a>
+</nav>
+</header>
+
+<main>
+<section id="details" class="hero">
+<p>Loading...</p>
+</section>
+</main>
+
+<script>
+async function load(){
+  const id=new URLSearchParams(location.search).get("id");
+  const items=await fetch("/api/games").then(r=>r.json());
+  const x=items.find(g=>g.id===id);
+
+  if(!x){
+    document.getElementById("details").innerHTML="<h1>Game not found</h1><p><a href='/'>← Back to ModHub</a></p>";
+    return;
+  }
+
+  document.title="ModHub — "+x.name;
+
+  document.getElementById("details").innerHTML=`
+    <div class="icon">${x.icon}</div>
+    <h1>${x.name}</h1>
+    <p>⭐ ${x.rating} · v${x.version} · ${x.size}</p>
+    <p>${x.description || "No description available."}</p>
+    ${x.download_url ? `<p><a class="download" href="${x.download_url}" target="_blank" rel="noopener">Download</a></p>` : ""}
+    <p><a href="/">← Back to ModHub</a></p>
+  `;
+}
+
+load();
+</script>
+
+</body>
+</html>
