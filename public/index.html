@@ -9,6 +9,6 @@
 let items=[],cat="all";
 async function load(){items=await fetch("/api/games").then(r=>r.json());draw()}
 function setCat(c){cat=c;draw()}
-function draw(){let q=(document.getElementById("q").value||"").toLowerCase();let a=items.filter(x=>(cat=="all"||x.category==cat)&&(!q||x.name.toLowerCase().includes(q)));document.getElementById("cards").innerHTML=a.map(x=>`<article class="card"><div class="icon">${x.icon}</div><h3>${x.name}</h3><p>v${x.version} · ${x.size} · ⭐ ${x.rating}</p><small>${x.category}</small>${x.download_url?`<p><a class="download" href="${x.download_url}" target="_blank" rel="noopener">Download</a></p>`:""}</article>`).join("")||"<p>No results.</p>"}
+function draw(){let q=(document.getElementById("q").value||"").toLowerCase();let a=items.filter(x=>(cat=="all"||x.category==cat)&&(!q||x.name.toLowerCase().includes(q)||(x.description||"").toLowerCase().includes(q)||(x.category||"").toLowerCase().includes(q)));document.getElementById("cards").innerHTML=a.map(x=>`<article class="card"><div class="icon">${x.icon}</div><h3>${x.name}</h3><p>v${x.version} · ${x.size} · ⭐ ${x.rating}</p><small>${x.category}</small>${x.download_url?`<p><a class="download" href="${x.download_url}" target="_blank" rel="noopener">Download</a></p>`:""}</article>`).join("")||"<p>No results.</p>"}
 load();
 </script></body></html>
