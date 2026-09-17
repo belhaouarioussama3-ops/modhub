@@ -36,7 +36,7 @@ async function load(){
   document.title="ModHub — "+x.name;
 
   document.getElementById("details").innerHTML=`
-    <div class="icon">${x.icon}</div>
+    ${x.image_url?`<img class="game-image" src="${x.image_url}" alt="${x.name}">`:`<div class="icon">${x.icon}</div>`}
     <h1>${x.name}</h1>
     <p>⭐ ${x.rating} · v${x.version} · ${x.size}</p>
     <p>${x.description || "No description available."}</p>
