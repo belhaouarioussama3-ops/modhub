@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ModHub — Android Games & Apps</title><link rel="stylesheet" href="/style.css"></head>
+<body><header><a class="logo" href="/">◆ ModHub</a><nav><a href="#games">Games</a><a href="#apps">Apps</a><a href="/admin.html">Admin</a></nav></header>
+<main><section class="hero"><span>ANDROID CATALOG</span><h1>Discover your next game.</h1><p>Browse Android games and apps in one clean catalog.</p><input id="q" placeholder="Search games and apps..." oninput="draw()"></section>
+<section id="games"><div class="head"><h2>Catalog</h2><div><button onclick="setCat('all')">All</button><button onclick="setCat('games')">Games</button><button onclick="setCat('apps')">Apps</button></div></div><div id="cards" class="cards"></div></section>
+<section id="apps"><div class="notice">Only distribute files you have the legal right to distribute.</div></section></main>
+<script>
+let items=[],cat="all";
+async function load(){items=await fetch("/api/games").then(r=>r.json());draw()}
+function setCat(c){cat=c;draw()}
+function draw(){let q=(document.getElementById("q").value||"").toLowerCase();let a=items.filter(x=>(cat=="all"||x.category==cat)&&(!q||x.name.toLowerCase().includes(q)));document.getElementById("cards").innerHTML=a.map(x=>`<article class="card"><div class="icon">${x.icon}</div><h3>${x.name}</h3><p>v${x.version} · ${x.size} · ⭐ ${x.rating}</p><small>${x.category}</small>${x.download_url?`<p><a class="download" href="${x.download_url}" target="_blank" rel="noopener">Download</a></p>`:""}</article>`).join("")||"<p>No results.</p>"}
+load();
+</script></body></html>

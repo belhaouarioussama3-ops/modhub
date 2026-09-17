@@ -1,0 +1,64 @@
+{
+  "admin": {
+    "id": "9c40b424-5e8d-4703-84de-c7c18746f592",
+    "username": "admin",
+    "password_hash": "$2b$12$GzLAOQZ289ct1shiAEtd3u00ftUpLULV0FFN7/eo.vTVen5SEJuPS"
+  },
+  "games": [
+    {
+      "id": "c31ce052-a5fb-4a15-a6bf-68706cf69e46",
+      "name": "Sky Racers",
+      "category": "games",
+      "version": "1.4.2",
+      "size": "128 MB",
+      "rating": "4.7",
+      "icon": "🏎️",
+      "description": "Demo game listing. Replace this with content you have permission to distribute.",
+      "download_url": ""
+    },
+    {
+      "id": "48156173-31ad-4f30-9737-b8594adb7662",
+      "name": "Pixel Quest",
+      "category": "games",
+      "version": "2.1.0",
+      "size": "86 MB",
+      "rating": "4.6",
+      "icon": "🧙",
+      "description": "Demo adventure game listing.",
+      "download_url": ""
+    },
+    {
+      "id": "bb66b2ed-e879-4c47-89b5-a29c279a6139",
+      "name": "File Tools",
+      "category": "games",
+      "version": "1.8.0",
+      "size": "22 MB",
+      "rating": "4.5",
+      "icon": "📁",
+      "description": "Demo utility app listing.",
+      "download_url": ""
+    },
+    {
+      "id": "5c1d1d41-1c37-4f77-a68f-9d78d4f5ba23",
+      "name": "My first game ",
+      "category": "games",
+      "version": "1.8.0",
+      "size": "200 MB",
+      "rating": "4.5",
+      "icon": "🎰",
+      "description": "My first game on my website.",
+      "download_url": ""
+    },
+    {
+      "id": "e64cd3ba-9ea1-478b-a73a-4e1bef1d9ba5",
+      "name": "File Tools",
+      "category": "games",
+      "version": "1.8.0",
+      "size": "22 MB",
+      "rating": "4.5",
+      "icon": "📁",
+      "description": "M'y first game ",
+      "download_url": ""
+    }
+  ]
+}

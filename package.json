@@ -1,0 +1,16 @@
+{
+  "name": "modhub-admin-starter",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Original Android games/apps catalog with secure server-side admin login",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^3.0.2",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "multer": "^2.0.2"
+  }
+}
